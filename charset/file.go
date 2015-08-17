@@ -1,6 +1,7 @@
 package charset
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
@@ -25,6 +26,7 @@ var CharsetDir = "/usr/local/lib/go-charset/datafiles"
 
 func readFile(name string) (data []byte, err error) {
 	var r io.ReadCloser
+	fmt.Fprintf(os.Stdout, "%#v\n", files)
 	if open := files[name]; open != nil {
 		r, err = open()
 		if err != nil {
